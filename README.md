@@ -31,6 +31,8 @@ yarn add https://github.com/rabiloo/react-native-theme-provider.git
 ```
 
 ```jsx
+- Step 1: Wrapper your App Root 
+
 import {ThemeContainer, DefaultThemeConfig} from 'react-native-theme-provider';
 
 const App = () => (
@@ -46,144 +48,56 @@ const App = () => (
           text: 'black',
         },
       }}>
-        <YourApp />
+        <Demo />
     </ThemeContainer>
 )
 ```
+```jsx
 
-## Are you using Glide already using an AppGlideModule?
+import {useThemeColor, ThemeService} from 'react-native-theme-provider';
 
--   [Are you using Glide already using an AppGlideModule?](docs/app-glide-module.md) (you might have problems if you don't read this)
+const Demo = () => {
+  const {Colors, setThemeCode} = useThemeColor();
 
-## Are you using Proguard?
-
-If you use Proguard you will need to add these lines to `android/app/proguard-rules.pro`:
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <View
+        style={{
+          backgroundColor: Colors.background,
+        }}>
+        <Text
+          style={{color: Colors.text}}
+          onPress={() => {
+            //get current theme code
+            const currentColorScheme = ThemeService.getColorScheme();
+            //change to what you want
+            setThemeCode({
+              themeCode: currentColorScheme === 'light' ? 'dark' : 'light',
+            });
+          }}>
+          Change theme
+        </Text>
+      </View>
+  );
+};
 
 ```
--keep public class com.dylanvann.fastimage.* {*;}
--keep public class com.dylanvann.fastimage.** {*;}
--keep public class * implements com.bumptech.glide.module.GlideModule
--keep public class * extends com.bumptech.glide.module.AppGlideModule
--keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
-  **[] $VALUES;
-  public *;
-}
-```
-
 ## Properties
 
-### `source?: object`
+### `data?: object`
 
-Source for the remote image to load.
-
----
-
-### `source.uri?: string`
-
-Remote url to load the image from. e.g. `'https://facebook.github.io/react/img/logo_og.png'`.
-
----
-
-### `source.headers?: object`
-
-Headers to load the image with. e.g. `{ Authorization: 'someAuthToken' }`.
-
----
-
-### `source.priority?: enum`
-
--   `FastImage.priority.low` - Low Priority.
--   `FastImage.priority.normal` **(Default)** - Normal Priority.
--   `FastImage.priority.high` - High Priority.
-
----
-
-### `source.cache?: enum`
-
--   `FastImage.cacheControl.immutable` - **(Default)** - Only updates if url changes.
--   `FastImage.cacheControl.web` - Use headers and follow normal caching procedures.
--   `FastImage.cacheControl.cacheOnly` - Only show images from cache, do not make any network requests.
-
----
-
-### `resizeMode?: enum`
-
--   `FastImage.resizeMode.contain` - Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding).
--   `FastImage.resizeMode.cover` **(Default)** - Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
--   `FastImage.resizeMode.stretch` - Scale width and height independently, This may change the aspect ratio of the src.
--   `FastImage.resizeMode.center` - Do not scale the image, keep centered.
-
----
-
-### `onLoadStart?: () => void`
-
-Called when the image starts to load.
-
----
-
-### `onProgress?: (event) => void`
-
-Called when the image is loading.
-
-e.g. `onProgress={e => console.log(e.nativeEvent.loaded / e.nativeEvent.total)}`
-
----
-
-### `onLoad?: (event) => void`
-
-Called on a successful image fetch. Called with the width and height of the loaded image.
-
-e.g. `onLoad={e => console.log(e.nativeEvent.width, e.nativeEvent.height)}`
-
----
-
-### `onError?: () => void`
-
-Called on an image fetching error.
-
----
-
-### `onLoadEnd?: () => void`
-
-Called when the image finishes loading, whether it was successful or an error.
-
----
-
-### `style`
-
-A React Native style. Supports using `borderRadius`.
-
----
-
-### `fallback: boolean`
-
-If true will fallback to using `Image`.
-In this case the image will still be styled and laid out the same way as `FastImage`.
-
----
-
-### `tintColor?: number | string`
-
-If supplied, changes the color of all the non-transparent pixels to the given color.
-
-## Static Methods
-
-### `FastImage.preload: (source[]) => void`
-
-Preload images to display later. e.g.
-
+Source for App Colors.e.g. 
 ```js
-FastImage.preload([
-    {
-        uri: 'https://facebook.github.io/react/img/logo_og.png',
-        headers: { Authorization: 'someAuthToken' },
-    },
-    {
-        uri: 'https://facebook.github.io/react/img/logo_og.png',
-        headers: { Authorization: 'someAuthToken' },
-    },
-])
-```
+data= {{ dark: {
+          background: 'black',
+          text: 'white',
+        },
+        light: {
+          background: 'white',
+          text: 'black',
+        }}
+```    
+---
 
 ## Supported React Native Versions
 
