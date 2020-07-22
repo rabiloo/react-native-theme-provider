@@ -12,7 +12,7 @@ Wrapper of Context for Theme.
 
 <p align="center" >
   <kbd>
-    <img src="docs/assets/theme_demo.gif" title="Scroll Demo" float="center">
+    <img src="docs/assets/theme_demo.gif" title="Theme Demo" float="center">
   </kbd>
   <br>
   <em>Theme-Provider example app.</em>
@@ -21,6 +21,9 @@ Wrapper of Context for Theme.
 ## Usage
 
 **Note: You must be using React Native 0.60.0 or higher to use the most recent version of `react-native-theme-provider`.**
+
+Install AsyncStorage first:\
+### Follow [AsyncStorage](https://github.com/react-native-community/async-storage)
 
 ```bash
 yarn add react-native-theme-provider
@@ -37,6 +40,7 @@ import {ThemeContainer, DefaultThemeConfig} from 'react-native-theme-provider';
 
 const App = () => (
     <ThemeContainer
+      cache={true}
       initialThemeCode={DefaultThemeConfig.dark}
       data={{
         dark: {
@@ -52,8 +56,8 @@ const App = () => (
     </ThemeContainer>
 )
 
-DefaultThemeConfig : dark, light, base_device (dynamic dark, light based on your phone)
 ```
+```DefaultThemeConfig : dark, light, base_device (dynamic dark, light based on your phone theme)```
 ```jsx
 - Step 2: use useThemeColor hook to get Colors data
 
@@ -63,17 +67,18 @@ const Demo = () => {
   const {Colors, setThemeCode} = useThemeColor();
 
   return (
-    <SafeAreaView style={{flex: 1}}>
       <View
         style={{
           backgroundColor: Colors.background,
+          flex:1,
         }}>
         <Text
           style={{color: Colors.text}}
           onPress={() => {
             //get current theme code
             const currentColorScheme = ThemeService.getColorScheme();
-            //change to what you want
+            
+             change to what you want
             setThemeCode({
               themeCode: currentColorScheme === 'light' ? 'dark' : 'light',
             });
@@ -101,7 +106,19 @@ data= {{ dark: {
         }}
 ```    
 ---
-
+### `cache?: boolean`
+Save your current theme code to AsyncStorage if ```initialThemeCode !== DefaultThemeConfig.base_device```
+```js
+data= {{ dark: {
+          background: 'black',
+          text: 'white',
+        },
+        light: {
+          background: 'white',
+          text: 'black',
+        }}
+```    
+---
 ## Supported React Native Versions
 
 This project only aims to support the latest version of React Native.\
