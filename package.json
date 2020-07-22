@@ -1,0 +1,24 @@
+{
+    "name": "react-native-theme-provider",
+    "version": "0.0.1",
+    "description":
+      "Wrapper of context for Theme",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://git.rabiloo.net/mobile/react-native-theme-provider.git"
+    },
+    "author":
+      "VokhuyetOz",
+    "license": "MIT",
+    "keywords": ["react-native", "ios", "android", "theme"],
+    "dependencies": {},
+    "peerDependencies": {
+      "react": "^16.8.6",
+      "react-native": ">=0.60.0",
+      "@react-native-community/async-storage": "^1.11.0"
+    }
+  }
