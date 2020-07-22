@@ -15,7 +15,13 @@
       "VokhuyetOz",
     "license": "MIT",
     "keywords": ["react-native", "ios", "android", "theme"],
-    "dependencies": {},
+    "homepage": "https://github.com/rabiloo/react-native-theme-provider#readme",
+    "bugs": {
+        "url": "https://github.com/rabiloo/react-native-theme-provider/issues"
+    },
+    "publishConfig": {
+      "registry": "https://npm.pkg.github.com/"
+    },
     "peerDependencies": {
       "react": "^16.8.6",
       "react-native": ">=0.60.0",
