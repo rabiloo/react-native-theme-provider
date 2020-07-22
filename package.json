@@ -20,7 +20,7 @@
         "url": "https://github.com/rabiloo/react-native-theme-provider/issues"
     },
     "publishConfig": {
-      "registry": "https://npm.pkg.github.com/"
+      "registry": "https://npm.pkg.github.com/@rabiloo"
     },
     "peerDependencies": {
       "react": "^16.8.6",
