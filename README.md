@@ -51,6 +51,8 @@ const App = () => (
         <Demo />
     </ThemeContainer>
 )
+
+DefaultThemeConfig : dark, light, base_device
 ```
 ```jsx
 - Step 2: use useThemeColor hook to get Colors data
