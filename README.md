@@ -52,7 +52,7 @@ const App = () => (
     </ThemeContainer>
 )
 
-DefaultThemeConfig : dark, light, base_device (dark, light based on your phone)
+DefaultThemeConfig : dark, light, base_device (dynamic dark, light based on your phone)
 ```
 ```jsx
 - Step 2: use useThemeColor hook to get Colors data
