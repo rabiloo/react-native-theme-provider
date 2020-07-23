@@ -1,6 +1,6 @@
 {
-    "name": "react-native-theme-provider",
-    "version": "0.0.2",
+    "name": "@rabiloo/react-native-theme-provider",
+    "version": "0.0.1",
     "description":
       "Wrapper of context for Theme",
     "main": "index.js",
@@ -12,19 +12,19 @@
       "url": "https://github.com/rabiloo/react-native-theme-provider.git"
     },
     "author":
-      "VokhuyetOz",
-    "license": "MIT",
-    "keywords": ["react-native", "ios", "android", "theme"],
+      "vokhuyetOz",
+    "license": "MIT RABILOO",
+    "keywords": ["react-native", "ios", "android", "theme", "context"],
     "homepage": "https://github.com/rabiloo/react-native-theme-provider#readme",
     "bugs": {
         "url": "https://github.com/rabiloo/react-native-theme-provider/issues"
     },
     "publishConfig": {
-      "registry": "https://npm.pkg.github.com/@rabiloo"
+      "registry": "https://registry.npmjs.org/"
     },
     "peerDependencies": {
       "react": "^16.8.6",
       "react-native": ">=0.60.0",
-      "@react-native-community/async-storage": "^1.11.0"
+      "@react-native-community/async-storage": ">=1.11.0"
     }
   }

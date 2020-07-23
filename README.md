@@ -6,13 +6,11 @@
 
 Wrapper of Context for Theme.
 
-[![Version][version-badge]][package]
-
 </div>
 
 <p align="center" >
   <kbd>
-    <img src="docs/assets/theme_demo.gif" title="Theme Demo" float="center">
+    <img src="docs/assets/theme_demo.gif" style="height:500px" title="Theme Demo" float="center">
   </kbd>
   <br>
   <em>Theme-Provider example app.</em>
@@ -20,13 +18,13 @@ Wrapper of Context for Theme.
 
 ## Usage
 
-**Note: You must be using React Native 0.60.0 or higher to use the most recent version of `react-native-theme-provider`.**
+**Note: You must be using React Native 0.60.0 or higher to use the most recent version of `@rabiloo/react-native-theme-provider`.**
 
-Install AsyncStorage first:\
-### Follow [AsyncStorage](https://github.com/react-native-community/async-storage)
-
+Install AsyncStorage first:
+### Follow [react-native-community/async-storage](https://github.com/react-native-community/async-storage)
+<br>
 ```bash
-yarn add react-native-theme-provider
+yarn add @rabiloo/react-native-theme-provider
 ```
 OR FROM GIT
 ```bash
@@ -36,7 +34,7 @@ yarn add https://github.com/rabiloo/react-native-theme-provider.git
 ```jsx
 - Step 1: Wrapper your App Root 
 
-import {ThemeContainer, DefaultThemeConfig} from 'react-native-theme-provider';
+import {ThemeContainer, DefaultThemeConfig} from '@rabiloo/react-native-theme-provider';
 
 const App = () => (
     <ThemeContainer
@@ -61,7 +59,7 @@ const App = () => (
 ```jsx
 - Step 2: use useThemeColor hook to get Colors data
 
-import {useThemeColor, ThemeService} from 'react-native-theme-provider';
+import {useThemeColor, ThemeService} from '@rabiloo/react-native-theme-provider';
 
 const Demo = () => {
   const {Colors, setThemeCode} = useThemeColor();
@@ -78,7 +76,7 @@ const Demo = () => {
             //get current theme code
             const currentColorScheme = ThemeService.getColorScheme();
             
-             change to what you want
+            // change to what you want
             setThemeCode({
               themeCode: currentColorScheme === 'light' ? 'dark' : 'light',
             });
@@ -108,16 +106,7 @@ data= {{ dark: {
 ---
 ### `cache?: boolean`
 Save your current theme code to AsyncStorage if ```initialThemeCode !== DefaultThemeConfig.base_device```
-```js
-data= {{ dark: {
-          background: 'black',
-          text: 'white',
-        },
-        light: {
-          background: 'white',
-          text: 'black',
-        }}
-```    
+ 
 ---
 ## Supported React Native Versions
 
