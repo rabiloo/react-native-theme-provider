@@ -22,7 +22,9 @@ Wrapper of Context for Theme.
 
 Install AsyncStorage first:
 ### Follow [react-native-community/async-storage](https://github.com/react-native-community/async-storage)
+
 <br>
+
 ```bash
 yarn add @rabiloo/react-native-theme-provider
 ```
