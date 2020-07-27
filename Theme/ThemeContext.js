@@ -70,7 +70,7 @@ function ThemeContainer({
 }
 
 ThemeContainer.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.any,
   data: PropTypes.object,
   initialThemeCode: PropTypes.string,
   cache: PropTypes.bool,
