@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Appearance} from 'react-native';
+import PropTypes from "prop-types"
 
 import {ThemeService, DefaultThemeConfig} from './ThemeService';
 import {ThemeLocal} from './ThemeLocal';
@@ -67,5 +68,13 @@ function ThemeContainer({
     <ThemeContext.Provider value={{Colors}}>{children}</ThemeContext.Provider>
   );
 }
+
+ThemeContainer.propTypes = {
+  children: PropTypes.any,
+  data: PropTypes.object,
+  initialThemeCode: PropTypes.string,
+  cache: PropTypes.bool,
+  onThemeDone: PropTypes.func
+};
 
 export {ThemeContext, ThemeContainer};
